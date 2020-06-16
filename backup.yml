@@ -1,0 +1,16 @@
+---
+- name: test backup
+  hosts: Node-1
+  gather_facts: false
+  connection: network_cli
+  user: cisco
+
+  tasks:
+    - name: backup running-config
+      iosxr_config:
+        admin: yes
+        backup: yes
+        backup_options:
+          dir_path: /home/user1/backup/config
+          filename: "{{  inventory_hostname  }}"
+      register: output

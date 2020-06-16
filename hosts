@@ -1,0 +1,9 @@
+[transport]
+Node-1
+xtc-1
+xtc-2
+rr-1
+rr-2
+
+[transport:vars]
+ansible_network_os=iosxr

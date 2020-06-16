@@ -1,0 +1,13 @@
+---
+- name: restore config
+  gather_facts: false
+  connection: network_cli
+  user: cisco
+  hosts: Node-1
+
+  tasks:
+    - name: restore to host
+      iosxr_config:
+        src: "{{  inventory_hostname  }}"
+        replace: config
+      register: output
